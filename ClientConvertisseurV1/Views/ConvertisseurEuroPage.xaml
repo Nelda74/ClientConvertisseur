@@ -13,16 +13,14 @@
 
     <RelativePanel>
         <TextBlock Margin="0 12" RelativePanel.AlignHorizontalCenterWithPanel="True" Name="rst"  Text="Montant en Euro" />
-        <TextBox Margin="0 12" Width="150" RelativePanel.AlignHorizontalCenterWithPanel="True" RelativePanel.Below="rst" Text="ReadOnly" Name="five" />
+        <TextBox Margin="0 12" Width="150" RelativePanel.AlignHorizontalCenterWithPanel="True" RelativePanel.Below="rst" Text="{Binding MontantEuro, Mode=TwoWay}" Name="five" />
 
         <TextBlock Margin="0 12" RelativePanel.AlignHorizontalCenterWithPanel="True" RelativePanel.Below="five" Name="nd" Text="Devise" />
-        <ComboBox ItemsSource="{Binding Devises}" DisplayMemberPath="NomDevise" Margin="0 12" RelativePanel.AlignHorizontalCenterWithPanel="True" RelativePanel.Below="nd" Name="four"/>
+        <ComboBox ItemsSource="{Binding Devises}" DisplayMemberPath="NomDevise" SelectedItem="{Binding SelectedCurrency, Mode=TwoWay}" Margin="0 12" RelativePanel.AlignHorizontalCenterWithPanel="True" RelativePanel.Below="nd" Name="four"/>
 
-        <Button Margin="0 12" RelativePanel.AlignHorizontalCenterWithPanel="True" RelativePanel.Below="four" Name="btn" Content="Convertir" />
+        <Button Click="btn_Click" Margin="0 12" RelativePanel.AlignHorizontalCenterWithPanel="True" RelativePanel.Below="four" Name="btn" Content="Convertir" />
 
         <TextBlock Margin="0 12" RelativePanel.AlignHorizontalCenterWithPanel="True" RelativePanel.Below="btn" Name="rd" Text="Montant en devise" />
-        <TextBox Margin="0 12" RelativePanel.AlignHorizontalCenterWithPanel="True" IsReadOnly="true" Name="devise" RelativePanel.Below="rd" Text="Read" />
-
-
+        <TextBox Margin="0 12" RelativePanel.AlignHorizontalCenterWithPanel="True" IsReadOnly="true" Name="devise" RelativePanel.Below="rd" Text="{Binding Res}" />
     </RelativePanel>
 </Page>

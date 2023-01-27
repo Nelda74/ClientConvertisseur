@@ -5,19 +5,11 @@ using ClientConvertisseurV1.Models;
 using ClientConvertisseurV1.Service;
 using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
-using Microsoft.UI.Xaml.Controls.Primitives;
-using Microsoft.UI.Xaml.Data;
-using Microsoft.UI.Xaml.Input;
-using Microsoft.UI.Xaml.Media;
-using Microsoft.UI.Xaml.Navigation;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.IO;
-using System.Linq;
-using System.Runtime.InteropServices.WindowsRuntime;
-using Windows.Foundation;
-using Windows.Foundation.Collections;
+using System.ComponentModel;
+using Windows.UI.Xaml;
 
 // To learn more about WinUI, the WinUI project structure,
 // and more about our project templates, see: http://aka.ms/winui-project-info.
@@ -27,13 +19,23 @@ namespace ClientConvertisseurV1.Views
     /// <summary>
     /// An empty page that can be used on its own or navigated to within a Frame.
     /// </summary>
-    public sealed partial class ConvertisseurEuroPage : Page
+    public sealed partial class ConvertisseurEuroPage : Page, INotifyPropertyChanged
     {
+        public event PropertyChangedEventHandler? PropertyChanged;
+
+        protected void OnPropertyChanged(string name)
+        {
+            PropertyChangedEventHandler? handler = PropertyChanged;
+            if (handler != null)
+            {
+                handler(this, new PropertyChangedEventArgs(name));
+            }
+        }
         public ConvertisseurEuroPage()
         {
             this.InitializeComponent();
             this.DataContext = this;
-
+            GetDataOnLoadAsync();
         }
 
         private ObservableCollection<Devise> devises;
@@ -41,13 +43,43 @@ namespace ClientConvertisseurV1.Views
         public ObservableCollection<Devise> Devises
         {
             get { return devises; }
-            set { devises = value; }
+            set { 
+                devises = value;
+                OnPropertyChanged("Devises");
+            }
+        }
+
+        private Devise selectedCurrency;
+
+        public Devise SelectedCurrency
+        {
+            get { return selectedCurrency; }
+            set { selectedCurrency = value; }
+        }
+
+        private Double montantEuro;
+
+        public Double MontantEuro
+        {
+            get { return montantEuro; }
+            set { montantEuro = value; }
+        }
+
+        private Double res;
+
+        public Double Res
+        {
+            get { return res; }
+            set { 
+                res = value;
+                OnPropertyChanged("Res");
+            }
         }
 
 
         private async void GetDataOnLoadAsync()
         {
-            WSService service = new WSService("https://localhost:7139");
+            WSService service = new WSService("https://localhost:7139/api/");
             List<Devise> result = await service.GetDevisesAsync("devises");
             if (result == null)
             {
@@ -56,6 +88,25 @@ namespace ClientConvertisseurV1.Views
             {
                 Devises = new ObservableCollection<Devise>(result);
             }
+        }
+
+        private async void ShowAsync(String title, String message)
+        {
+            ContentDialog noWifiDialog = new ContentDialog()
+            {
+                Title = "No wifi connection",
+                Content = "Check connection and try again.",
+                CloseButtonText = "Ok"
+            };
+
+            noWifiDialog.XamlRoot = this.Content.XamlRoot;
+            await noWifiDialog.ShowAsync();
+        }
+
+        private void btn_Click(object sender, RoutedEventArgs e)
+        {
+            ShowAsync("Rien", "Rien");
+            Res = MontantEuro * SelectedCurrency.Taux;
         }
     }
 }
