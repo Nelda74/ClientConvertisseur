@@ -83,7 +83,7 @@ namespace ClientConvertisseurV1.Views
             List<Devise> result = await service.GetDevisesAsync("devises");
             if (result == null)
             {
-                return;
+                ShowAsync("Erreur de réseau", "Impossible de charger les données depuis l'API");
             } else
             {
                 Devises = new ObservableCollection<Devise>(result);
@@ -94,8 +94,8 @@ namespace ClientConvertisseurV1.Views
         {
             ContentDialog noWifiDialog = new ContentDialog()
             {
-                Title = "No wifi connection",
-                Content = "Check connection and try again.",
+                Title = title,
+                Content = message,
                 CloseButtonText = "Ok"
             };
 
@@ -105,7 +105,18 @@ namespace ClientConvertisseurV1.Views
 
         private void btn_Click(object sender, RoutedEventArgs e)
         {
-            ShowAsync("Rien", "Rien");
+            if (SelectedCurrency== null)
+            {
+                ShowAsync("Erreur de votre part", "Vous devez sélectionner une devise !");
+                return;
+            }
+
+            if (MontantEuro < 0)
+            {
+                ShowAsync("Erreur de votre part", "Vous devez entrer un montant supérieur à 0 !");
+                return;
+            }
+
             Res = MontantEuro * SelectedCurrency.Taux;
         }
     }
