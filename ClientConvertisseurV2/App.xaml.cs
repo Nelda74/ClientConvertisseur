@@ -22,6 +22,7 @@ using Windows.ApplicationModel;
 using Windows.ApplicationModel.Activation;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using ClientConvertisseurV2.ViewModels;
 
 // To learn more about WinUI, the WinUI project structure,
 // and more about our project templates, see: http://aka.ms/winui-project-info.
@@ -40,6 +41,11 @@ namespace ClientConvertisseurV2
             get { return Ioc.Default.GetService<ConvertisseurEuroViewModel>(); }
         }
 
+        public ConvertisseurDeviseViewModel ConvertisseurDeviseVM
+        {
+            get { return Ioc.Default.GetService<ConvertisseurDeviseViewModel>(); }
+        }
+
         /// <summary>
         /// Initializes the singleton application object.  This is the first line of authored code
         /// executed, and as such is the logical equivalent of main() or WinMain().
@@ -51,6 +57,7 @@ namespace ClientConvertisseurV2
             Ioc.Default.ConfigureServices(
                 new ServiceCollection()
                 .AddSingleton<ConvertisseurEuroViewModel>()
+                .AddSingleton<ConvertisseurDeviseViewModel>()
                 .BuildServiceProvider());
         }
 

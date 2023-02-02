@@ -1,0 +1,26 @@
+<!-- Copyright (c) Microsoft Corporation and Contributors. -->
+<!-- Licensed under the MIT License. -->
+
+<Page
+    x:Class="ClientConvertisseurV2.Views.ConvertisseurDevisePage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:ClientConvertisseurV2.Views"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <RelativePanel>
+        <TextBlock Margin="0 12" RelativePanel.AlignHorizontalCenterWithPanel="True" Name="rst"  Text="Montant en Devise" />
+        <TextBox Margin="0 12" Width="150" RelativePanel.AlignHorizontalCenterWithPanel="True" RelativePanel.Below="rst" Text="{Binding MontantDevise, Mode=TwoWay}" Name="five" />
+
+        <TextBlock Margin="0 12" RelativePanel.AlignHorizontalCenterWithPanel="True" RelativePanel.Below="five" Name="nd" Text="Devise" />
+        <ComboBox ItemsSource="{Binding Devises}" DisplayMemberPath="NomDevise" SelectedItem="{Binding SelectedCurrency, Mode=TwoWay}" Margin="0 12" RelativePanel.AlignHorizontalCenterWithPanel="True" RelativePanel.Below="nd" Name="four"/>
+
+        <Button Margin="0 12" RelativePanel.AlignHorizontalCenterWithPanel="True" Content="Convertir" RelativePanel.Below="four" Name="btn" Command="{Binding BtnSetConversion}" />
+
+        <TextBlock Margin="0 12" RelativePanel.AlignHorizontalCenterWithPanel="True" RelativePanel.Below="btn" Name="rd" Text="Montant en devise" />
+        <TextBox Margin="0 12" RelativePanel.AlignHorizontalCenterWithPanel="True" IsReadOnly="true" Name="devise" RelativePanel.Below="rd" Text="{Binding Res}" />
+    </RelativePanel>
+</Page>
