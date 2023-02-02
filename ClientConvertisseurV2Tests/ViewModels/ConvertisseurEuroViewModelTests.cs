@@ -33,7 +33,7 @@ namespace ClientConvertisseurV2.ViewModels.Tests
             ConvertisseurEuroViewModel convertisseurEuroViewModel = new ConvertisseurEuroViewModel();
             //Création d'un objet de type ConvertisseurEuroViewModel
 
-            convertisseurEuroViewModel.MontantEuro = 100;
+            convertisseurEuroViewModel.Input = 100;
 
             //Création d'un objet Devise, dont Taux=1.07
             Devise laDevise = new Devise();
