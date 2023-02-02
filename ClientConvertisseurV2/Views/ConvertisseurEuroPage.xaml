@@ -13,7 +13,7 @@
     
     <RelativePanel>
         <TextBlock Margin="0 12" RelativePanel.AlignHorizontalCenterWithPanel="True" Name="rst"  Text="Montant en Euro" />
-        <TextBox Margin="0 12" Width="150" RelativePanel.AlignHorizontalCenterWithPanel="True" RelativePanel.Below="rst" Text="{Binding MontantEuro, Mode=TwoWay}" Name="five" />
+        <TextBox Margin="0 12" Width="150" RelativePanel.AlignHorizontalCenterWithPanel="True" RelativePanel.Below="rst" Text="{Binding Input, Mode=TwoWay}" Name="five" />
 
         <TextBlock Margin="0 12" RelativePanel.AlignHorizontalCenterWithPanel="True" RelativePanel.Below="five" Name="nd" Text="Devise" />
         <ComboBox ItemsSource="{Binding Devises}" DisplayMemberPath="NomDevise" SelectedItem="{Binding SelectedCurrency, Mode=TwoWay}" Margin="0 12" RelativePanel.AlignHorizontalCenterWithPanel="True" RelativePanel.Below="nd" Name="four"/>

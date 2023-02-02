@@ -5,9 +5,11 @@ VisualStudioVersion = 17.4.33213.308
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ClientConvertisseurV1", "ClientConvertisseurV1\ClientConvertisseurV1.csproj", "{EE53AB3D-9270-40B9-9382-909C61EE6501}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClientConvertisseurV2", "ClientConvertisseurV2\ClientConvertisseurV2.csproj", "{19E925D2-0710-4550-B98D-15E5E1D9421C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ClientConvertisseurV2", "ClientConvertisseurV2\ClientConvertisseurV2.csproj", "{19E925D2-0710-4550-B98D-15E5E1D9421C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClientConvertisseurV2Tests", "ClientConvertisseurV2Tests\ClientConvertisseurV2Tests.csproj", "{89C65CC4-F4CB-4AD4-80DF-31E373D327ED}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ClientConvertisseurV2Tests", "ClientConvertisseurV2Tests\ClientConvertisseurV2Tests.csproj", "{89C65CC4-F4CB-4AD4-80DF-31E373D327ED}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "App1", "App1\App1.csproj", "{D74A98D8-DF56-47E3-B108-524956751BF7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -85,6 +87,30 @@ Global
 		{89C65CC4-F4CB-4AD4-80DF-31E373D327ED}.Release|x64.Build.0 = Release|Any CPU
 		{89C65CC4-F4CB-4AD4-80DF-31E373D327ED}.Release|x86.ActiveCfg = Release|Any CPU
 		{89C65CC4-F4CB-4AD4-80DF-31E373D327ED}.Release|x86.Build.0 = Release|Any CPU
+		{D74A98D8-DF56-47E3-B108-524956751BF7}.Debug|Any CPU.ActiveCfg = Debug|x64
+		{D74A98D8-DF56-47E3-B108-524956751BF7}.Debug|Any CPU.Build.0 = Debug|x64
+		{D74A98D8-DF56-47E3-B108-524956751BF7}.Debug|Any CPU.Deploy.0 = Debug|x64
+		{D74A98D8-DF56-47E3-B108-524956751BF7}.Debug|ARM64.ActiveCfg = Debug|ARM64
+		{D74A98D8-DF56-47E3-B108-524956751BF7}.Debug|ARM64.Build.0 = Debug|ARM64
+		{D74A98D8-DF56-47E3-B108-524956751BF7}.Debug|ARM64.Deploy.0 = Debug|ARM64
+		{D74A98D8-DF56-47E3-B108-524956751BF7}.Debug|x64.ActiveCfg = Debug|x64
+		{D74A98D8-DF56-47E3-B108-524956751BF7}.Debug|x64.Build.0 = Debug|x64
+		{D74A98D8-DF56-47E3-B108-524956751BF7}.Debug|x64.Deploy.0 = Debug|x64
+		{D74A98D8-DF56-47E3-B108-524956751BF7}.Debug|x86.ActiveCfg = Debug|x86
+		{D74A98D8-DF56-47E3-B108-524956751BF7}.Debug|x86.Build.0 = Debug|x86
+		{D74A98D8-DF56-47E3-B108-524956751BF7}.Debug|x86.Deploy.0 = Debug|x86
+		{D74A98D8-DF56-47E3-B108-524956751BF7}.Release|Any CPU.ActiveCfg = Release|x64
+		{D74A98D8-DF56-47E3-B108-524956751BF7}.Release|Any CPU.Build.0 = Release|x64
+		{D74A98D8-DF56-47E3-B108-524956751BF7}.Release|Any CPU.Deploy.0 = Release|x64
+		{D74A98D8-DF56-47E3-B108-524956751BF7}.Release|ARM64.ActiveCfg = Release|ARM64
+		{D74A98D8-DF56-47E3-B108-524956751BF7}.Release|ARM64.Build.0 = Release|ARM64
+		{D74A98D8-DF56-47E3-B108-524956751BF7}.Release|ARM64.Deploy.0 = Release|ARM64
+		{D74A98D8-DF56-47E3-B108-524956751BF7}.Release|x64.ActiveCfg = Release|x64
+		{D74A98D8-DF56-47E3-B108-524956751BF7}.Release|x64.Build.0 = Release|x64
+		{D74A98D8-DF56-47E3-B108-524956751BF7}.Release|x64.Deploy.0 = Release|x64
+		{D74A98D8-DF56-47E3-B108-524956751BF7}.Release|x86.ActiveCfg = Release|x86
+		{D74A98D8-DF56-47E3-B108-524956751BF7}.Release|x86.Build.0 = Release|x86
+		{D74A98D8-DF56-47E3-B108-524956751BF7}.Release|x86.Deploy.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
